@@ -150,8 +150,6 @@ CREATE TABLE messages (
 
 ## Deployment
 
-### Vercel (Recommended)
-
 #### Step 1: Push to GitHub
 ```bash
 # Initialize Git (if not already done)
@@ -164,68 +162,6 @@ git remote add origin https://github.com/yourusername/ai-chat-app.git
 git branch -M main
 git push -u origin main
 ```
-
-#### Step 2: Deploy to Vercel
-1. Go to [vercel.com](https://vercel.com) and sign in with GitHub
-2. Click "New Project" and import your repository
-3. Add environment variables in Vercel dashboard:
-   - `NEXT_PUBLIC_SUPABASE_URL` - Your Supabase project URL
-   - `NEXT_PUBLIC_SUPABASE_ANON_KEY` - Your Supabase anon key
-   - `OPENAI_API_KEY` - Your OpenAI API key (optional)
-4. Click "Deploy" and wait for deployment to complete
-5. Your app will be live at `https://your-app-name.vercel.app`
-
-#### Step 3: Configure Domain (Optional)
-- In Vercel dashboard, go to your project settings
-- Add a custom domain if desired
-- Configure DNS settings as instructed
-
-### Other Platforms
-The app can be deployed to any platform that supports Next.js:
-- **Netlify**: Connect GitHub repo, add build command `npm run build`, publish directory `out`
-- **Railway**: Connect GitHub repo, automatic deployment
-- **Render**: Connect GitHub repo, add environment variables
-- **DigitalOcean App Platform**: Connect GitHub repo, add environment variables
-
-### Environment Variables for Production
-Make sure to set these in your deployment platform:
-```env
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_url_here
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key_here
-OPENAI_API_KEY=your_openai_api_key_here
-```
-
-## Troubleshooting
-
-### Common Issues
-
-1. **"Failed to fetch models" error**
-   - Check your Supabase URL and anon key
-   - Ensure the `models` table exists and has data
-
-2. **Authentication not working**
-   - Verify email/password auth is enabled in Supabase
-   - Check your Supabase URL and anon key
-
-3. **AI responses not working**
-   - Check your OpenAI API key
-   - Without an API key, the app will use echo mode
-
-4. **Messages not saving**
-   - Check RLS policies are set up correctly
-   - Verify user authentication is working
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## License
-
-MIT License - see LICENSE file for details
 
 ## Support
 
